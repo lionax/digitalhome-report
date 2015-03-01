@@ -1,0 +1,27 @@
+\documentclass[12pt,a4paper]{report}
+%Packages
+\usepackage{graphicx}
+
+%Costum Package with individual document style
+\usepackage{mediendesign}
+
+\begin{document}
+
+	\input{./docs/title.tex}
+	\maketitle
+	\tableofcontents
+	\listoffigures
+	\listoftables
+
+	\input{./docs/intro.tex}
+	%Main Content
+	%...
+
+	\input{./docs/conclusions.tex}
+
+	%Bibliography
+	\clearpage
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\input{./docs/md_bibliography.tex}
+
+\end{document}
