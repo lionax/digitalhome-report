@@ -1,0 +1,30 @@
+%----------
+% Packages
+%----------
+
+%figure compatibility
+\usepackage{graphicx}
+
+%german letters
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+
+%Das Paket erzeugt ein anklickbares Verzeichnis in der PDF-Datei.
+\usepackage{hyperref}
+
+%Das Paket wird f�r die anderthalb-zeiligen Zeilenabstand benötigt
+\usepackage{setspace}
+
+%Einrückung eines neuen Absatzes
+\setlength{\parindent}{0em}
+
+%Definition der Ränder
+\usepackage[paper=a4paper,left=30mm,right=30mm,top=30mm,bottom=30mm]{geometry} 
+
+%Abstand der Fußnoten
+\deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+
+%Regeln, bis zu welcher Tiefe (section,subsection,subsubsection) Überschriften angezeigt werden sollen (Anzeige der Überschriften im Verzeichnis / Anzeige der Nummerierung)
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
