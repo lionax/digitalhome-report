@@ -1,17 +1,16 @@
 \documentclass[12pt,a4paper]{report}
 
 %Costum Package with individual document style
-\ProvidesPackage{term-paper.sty}
+\usepackage{term-paper}
 
 \begin{document}
 
-	\input{./docs/title.tex}
-	\maketitle
+	\include{./docs/title}
 	\tableofcontents
 	\listoffigures
 	\listoftables
 
-	\input{./docs/abstract.tex}
+	\include{./docs/abstract}
 	
 	%Main Content
 
@@ -19,24 +18,24 @@
 	\onehalfspacing
 
 	%Chapter 1
-	\input{./docs/chapter_1.tex}
+	\include{./docs/chapter_1}
 	
 	%Chapter 2
-	\input{./docs/chapter_2.tex}
+	\include{./docs/chapter_2}
 
 	%chapter 3
-	\input{./docs/chapter_3.tex}
+	\include{./docs/chapter_3}
 
 	%chapter 4
-	\input{./docs/chapter_4.tex}
+	\include{./docs/chapter_4}
 
 	%...
 
-	\input{./docs/conclusions.tex}
+	\include{./docs/conclusions}
 
 	%Bibliography
 	\clearpage
 	\addcontentsline{toc}{chapter}{Bibliography}
-	\input{./docs/md_bibliography.tex}
+	\include{./docs/md_bibliography}
 
 \end{document}
