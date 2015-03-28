@@ -1,1 +1,15 @@
 \section{Optimierung}
+Die Webseite war aber trotz allem noch lange nicht perfekt. Einige Elemente der Webseiten mussten noch überarbeitet werden. 
+\\
+Das Menü wurde von der Optik und von der Performance her verbessert, sodass es nun flüssiger funktioniert.  
+\\
+\\
+Außerdem wurde der CSS- und Javascript-Quelltext modularisiert, sodass man eine einfachere Wartung und Optimierung machen kann.
+\\
+\\
+Die Bilder waren zu groß, so dass es Probleme mit Transition-Effekten gab, da der Browser mit dem Rendern nicht nachkam. Dies wurde durch Komprimieren mit Hilfe von Minifyern behoben, worauf jetzt noch genauer eingegangen wird.
+\\
+Damit der Quelltext für den Browser schneller und einfacher zu interpretieren ist, wurden im Anschluss Programme verwendet, sogenannte Minifyer, die alle für den Browser unnötige Zeichen, wie Kommentare oder Leerzeichen aus dem Quelltext entfernen und somit die komprimiert und für den Computer vereinfacht. Mit Hilfe dieser Programme wurden Bilder, HTML, CSS, und JavaScript-Dateien komprimiert. Da aber der Quelltext zwar für den Computer viel einfacher und schneller lesbar ist, ist es für Menschen nicht mehr so einfach lesbar. Deswegen wurde ein Source-Verzeichnis angelegt, worin gearbeitet wird, und im Anschluss die Minifyer die eigentlichen Quelltext-Dateien, worauf sich der Browser bezieht, verkleinert.
+\\
+\\
+Das zuvor implementierte Canvas wurde wieder aus der Startseite herausgenommen, da dieses zu große Probleme beim Laden der Seite bereitet hat. Da aber das Konzept des Canvas gefallen hatte, wurde es als Hintergrundeffekt der Fehler-404-Seite eingesetzt.
