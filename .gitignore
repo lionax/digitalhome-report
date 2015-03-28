@@ -5,6 +5,8 @@
 
 ## TEX Extensions
 
+*.run.xml
+*-blx.bib
 *.aux
 *.glo
 *.idx
