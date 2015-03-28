@@ -3,6 +3,9 @@
 %Costum Package with individual document style
 \usepackage{term-paper}
 
+%Importing the used bibliography
+\addbibresource{mdbib.bib}
+
 \begin{document}
 
 	\include{./docs/title}
@@ -31,11 +34,9 @@
 
 	%...
 
-	\include{./docs/conclusions}
+	%\include{./docs/conclusions}
 
 	%Bibliography
-	\clearpage
-	\addcontentsline{toc}{chapter}{Bibliography}
-	\include{./docs/md_bibliography}
+	\printbibliography
 
 \end{document}
