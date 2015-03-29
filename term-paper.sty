@@ -10,21 +10,22 @@
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 
+%Das Paket erzeugt ein anklickbares Verzeichnis in der PDF-Datei.
+\usepackage{hyperref}
+
 %Das Packet für Bibtex
 \usepackage[
 backend=bibtex,
-citestyle=authoryear,
-bibstyle=numeric,
-sorting=ynt]{biblatex}
-
-%Das Paket erzeugt ein anklickbares Verzeichnis in der PDF-Datei.
-\usepackage{hyperref}
+citestyle=authoryear, %Zeigt den Nachnamen des Authors sowie das Jahr
+bibstyle=numeric, %Einträge in der bib per verweiß-nummer
+sorting=ynt %Sortierung nach jahr der veröffentlichung
+]{biblatex}
 
 %Das Paket wird f�r die anderthalb-zeiligen Zeilenabstand benötigt
 \usepackage{setspace}
 
 %Einrückung eines neuen Absatzes
-\setlength{\parindent}{0em}
+%\setlength{\parindent}{0em}
 
 %Definition der Ränder
 \usepackage[paper=a4paper,left=30mm,right=30mm,top=30mm,bottom=30mm]{geometry} 
