@@ -1,7 +1,10 @@
 \section{Javascript}
 
 	\subsection{requestAnimationFrame();}
+
 Für einige Operationen in JavaScript [Beispiele] muss ein Reflow durchgeführt werden, mit dem die Positionen der Elemente der Website neu berechnet werden. Zwangsläufig muss danach auch ein Repaint durchgeführt werden, damit mögliche Änderungen auf dem Bildschirm sichtbar werden. Dies geschieht unabhängig von den standardmäßigen 60 Repaints pro Sekunde, wodurch mehr als 60 Repaints pro Sekunde enstehen, was die FPS Zahl künstlich auf über 60 angehebt. Manche Endgeräte können eine solche Last nicht tragen, es kommt zu Lags, erhöhtem Stromverbrauch (vor allem bei mobilen Endgeräten von Relevanz), folglich bleibt dem Nutzer nur noch das Verlassen der Seite übrig. Hier setzt requestAnimationFrame() an.
+
+Für einige Operationen in JavaScript \footcite[vgl.][]{reflow} muss ein Reflow durchgeführt werden, mit dem die Positionen der Elemente der Website neu berechnet werden. Zwangsläufig muss danach auch ein Repaint durchgeführt werden, damit mögliche Änderungen auf dem Bildschirm sichtbar werden. Dies geschieht unabhängig von den standardmäßigen 60 Repaints pro Sekunde, wodurch mehr als 60 Repaints pro Sekunde enstehen, was die FPS Zahl künstlich auf über 60 angehebt. Manche Endgeräte können eine solche Last nicht tragen, es kommt zu Lags, erhöhtem Stromverbrauch (vor allem bei mobilen Endgeräten von Relevanz), folglich bleibt dem Nutzer nur noch das Verlassen der Seite übrig. Hier setzt requestAnimationFrame() an.
 Die requestAnimationFrame-Funktion synchronisiert den Aufruf einer übergebenen Callback-Funktion mit dem Repaint des Browsers, sodass die Website erst dann neu gerendert wird, wenn alle notwendigen Berechnungen und Reflows abgeschlossen sind.
 
 
@@ -71,8 +74,7 @@ In der Abbildung \ref{js_scrollex} sieht man die Zuweisung der Funktion scrollex
 
 \subsection{Canvas}
 
-
-
+Da sich Teile der Website noch im Bau befinden, müssen Platzhalter für diese Seiten her. Einfache Textseiten wie `hier wird gebaut` würden langweilig wirken und die geringe Wertschätzung der Seite von Seiten der Entwickler und Designer zeigen. Deshalb muss man sich für Error- und Baustellenseiten etwas besonderes einfallen lassen, um die Seite mit Inhalt zu füllen und dem User als Kunden etwas zu bieten, was er in guter Erinnerung behalten kann. Im Bezug auf Kapitel \ref{emo_col} wurde eine Seite entwickelt, die auf der einen Seite mit Hilfe des Farbschemas Emotionen hervorrufen kann und gleichzeitig den Satz `hier wird gebaut` verbildlicht.
 
 \subsection{Menü}
 Läuft auf dem Client-PC kein Javascript, so muss das Menü trotzdem zugänglich sein. Deswegen ist das Menü grundsätzlich offen und wird erst durch ein funktionierendes Javascript beim Laden der Seite geschlossen, wie in Abbildung \ref{js_menuevent} zu sehen.
