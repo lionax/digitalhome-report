@@ -1,7 +1,7 @@
 \section{Effekt Hacks}
 
-Dieser Abschnitt soll sich der Umsetzung unterschiedlicher Animationen, Formen und Effekte der Seite in CSS widmen. Dabei sollen diese nicht auf den Einsatz von Javascript angewiesen sein, werden aber durch dessen Einsatz aufgewertet.
-Es werden vor allem CSS3 Transitions für Animationen und die Pseudoelemente :before und :after für Formen eingesetzt.
+Dieses Kapitel soll sich der Umsetzung unterschiedlicher Animationen, Formen und Effekte der Seite in CSS widmen. Dabei sollen diese nicht auf den Einsatz von Javascript angewiesen sein, werden aber durch dessen Einsatz aufgewertet.
+In diesem Kapitel werden vor allem CSS3 Transitions für Animationen und die Pseudoelemente :before und :after für Formen eingesetzt.
 \subsection{Menübutton}
 \subsubsection{Grundüberlegung}
 
@@ -17,9 +17,9 @@ Nun sieht man im Normalzustand ein orangenes Kreuz, während im Hoverzustand ein
 
 Das Kreuz bedeutet „Beenden“. Es wird z.B. in Betriebssystemen als Symbol zum Schließen einer Anwendung verwendet oder um einen Vorgang abzubrechen. Hier soll der Nutzer sehen, dass er das Menü über die Schaltfläche wieder schließen kann. Da man damit jedoch ein Element aus dem Bild entfernt, wurde das Kreuz orange gefärbt, um den Nutzer vor jener Handlung zu warnen und den Button auffälliger zu machen. Der User soll damit nicht davon abgehalten werden, das Menü wieder zu schließen, vielmehr soll die Warnung als Vorwarnung verstanden werden. Dadurch erwartet der Nutzer das Verschwinden des Menüs und wird nicht überrascht.
 
-An dieser Stelle sollte erwähnt werden, warum zwei Aktionen auf einen Button gelegt wurden. Man hätte alternativ auch im Menü einen separaten „Schließen“-Button integrieren können. Der User hätte dann auf den Menübutton geklickt, das Menü hätte sich geöffnet. Dann hätte er den „Schließen“-Button aber erst suchen müssen, um dann zu überlegen, wo der Unterschied zwischen den beiden Schaltflächen liegt. Zusätzlich hätte er seine Maus bewegen müssen, was dem Nutzer Raum gibt, um sich zu verklicken und unbeabsichtigt auf eine andere Seite zu kommen. Dadurch würde sich der Nutzer ziemlich ärgern, da solche Situationen hätten vermieden werden können. Zuletzt kommt erschwerend dazu, dass man von Kindesbeinen daran gewöhnt wird, zwei komplementäre Aktionen über einen Knopf auszuführen. PCs (auch alle anderen elektronischen Geräte) besitzen beispielsweise einen einzelnen Knopf, über den man das Gerät ein- und ausschaltet, gleichermaßen haben Kugelschreiber einen Knopf, mit dem man die Miene ein- und ausfahren kann. Wir benutzen die Türklinke, um die Tür zu öffnen, wir benutzen die gleiche Türklinke, um die Tür wieder zu schließen. Wir können also davon ausgehen, das  eine kontextsensitive (dynamische) Schaltfläche dem Nutzer sehr viel vertrauter ist als zwei statische (`Öffnen` und `Schließen`).
+An dieser Stelle sollte erwähnt werden, warum zwei Aktionen auf einen Button gelegt wurden. Man hätte alternativ auch im Menü einen separaten „Schließen“-Button integrieren können. Der User hätte dann auf den Menübutton geklickt, das Menü hätte sich geöffnet. Dann hätte er den „Schließen“-Button aber erst suchen müssen, um dann zu überlegen, wo der Unterschied zwischen den beiden Schaltflächen liegt. Zusätzlich hätte er seine Maus bewegen müssen, was dem Nutzer Raum gibt, um sich zu verklicken und unbeabsichtigt auf eine andere Seite zu kommen. Dadurch würde sich der Nutzer ziemlich ärgern, da solche Situationen hätten vermieden werden können. Zuletzt kommt erschwerend dazu, dass man von Kindesbeinen daran gewöhnt wird, zwei komplementäre Aktionen über einen Knopf auszuführen. PCs (auch alle anderen elektronischen Geräte) besitzen beispielsweise einen einzelnen Knopf, über den man das Gerät ein- und ausschaltet, gleichermaßen haben Kugelschreiber einen Knopf, mit dem man die Miene ein- und ausfahren kann. Wir benutzen die Türklinke, um die Tür zu öffnen, wir benutzen die gleiche Türklinke, um die Tür wieder zu schließen. Wir können also davon ausgehen, das kontextsensitive (dynamische) Schaltflächen den Nutzer sehr viel vertrauter sind als statische.
 
-Der blaue Pfeil soll dem Nutzer verdeutlichen, dass eine Bewegung passieren wird, nämlich nach links. Damit wird die Bedeutung des Kreuzes nochmals unterstrichen, der Pfeil weist den Nutzer explizit darauf hin, dass beim Anklicken das Element, mit dem interagiert wird (das Menü), nach links verschwinden wird. Da links die Richtung ist, wo die Menüleiste herkommt, wird der Pfeil nach links mit der Wiederherstellung eines Anfangszustandes assoziiert.
+Der blaue Pfeil soll dem Nutzer verdeutlichen, dass eine Bewegung passieren wird, nämlich nach links. Damit wird die Bedeutung des Kreuzes nochmals unterstrichen, der Pfeil weist den Nutzer explizit darauf hin, dass beim Anklicken das Element, mit dem interagiert wird (das Menü) nach links verschwinden wird. Da links die Richtung ist, wo die Menüleiste herkommt, wird der Pfeil nach links mit der Wiederherstellung eines Anfangszustandes assoziiert.
 
 
 \subsubsection{Code}
@@ -29,16 +29,17 @@ Der blaue Pfeil soll dem Nutzer verdeutlichen, dass eine Bewegung passieren wird
 \caption{Die Trennung von rotate() und translate()}
 \label{css_after}
 \end{figure}
-Die Linien des Menübuttons sind <div> Container. Zur Drehung der Objekte werden CSS3 Transforms verwendet. Speziell die Funktionen rotate() und translate3d(). Die Kombination der beiden in einem Element ist jedoch Problematisch, da sich mit rotate() die Objektmatrix verändert und mit translate() die Objektachse nicht verschoben wird. Ein gedrehtes Objekt können wir also nicht entlang der ursprünglichen X-/Y-Achsen verschieben und ein verschobenes Objekt dreht sich immernoch um seine ursprüngliche Achse. Hier kommt das Pseudoelement :after ins Spiel. Der Container arbeitet als Träger für das :after Element, welches durch seine absolute Positionierung einen eigenen Container bildet (Dies gilt jedoch nicht für den Suchbutton, da er weitaus weniger komplex ist und jenes Verhalten zudem für die Animation nützlich ist), wie in Abbildung \ref{css_after} zu sehen. Der Träger wird durch Translation verschoben, das darin enthaltene :after Element dreht sich dann um die scheinbar verschobene Objektachse.
+Die Linien des Menübuttons sind <div> Container. Zur Drehung der Objekte werden CSS3 Transforms verwendet. Speziell die Funktionen rotate() und translate3d(). Die Kombination der beiden in einem Element ist jedoch Problematisch, da sich mit rotate() die Objektmatrix verändert und mit translate() die Objektachse nicht verschoben wird. Ein gedrehtes Objekt können wir also nicht entlang der ursprünglichen X-/Y-Achsen verschieben und ein verschobenes Objekt dreht sich immernoch um seine ursprüngliche Achse. Hier kommt das Pseudoelement :after ins Spiel. Der Container arbeitet als Träger für das :after Element, welches durch seine absolute Positionierung einen eigenen Container bildet (Dies gilt jedoch nicht für den Suchbutton, da er weitaus weniger komplex ist und jenes Verhalten zudem für die Animation nützlich ist), wie in Abbildung \ref{css_after} zu sehen. Der Träger wird durch Translation verschoben, das darin enthaltene :after Element dreht sich dann um die scheinbar verschobene Objektachse. [Codeausschnitt]
 
 
 Durch Versuche wurden 0.4 Sekunden als optimale Zeit ausgemacht. Um die Animation organischer wirken zu lassen, wird „ease“ als CSS Easingfunktion verwendet. Dazu kommen variierende transition-delays, die die Animation etwas auflockern.
-Zur Translation im zweidimensionalen Raum reicht translate() eigentlich aus, mit translate3d() soll jedoch eine Hardwarebeschleunigung forciert werden (\footcite[vgl.][]{css3D}).
+Zur Translation im zweidimensionalen Raum reicht translate() eigentlich aus, mit translate3d() soll jedoch eine Hardwarebeschleunigung forciert werden (Quelle: \url{http://davidwalsh.name/translate3d}).
+[onclick effekt für mobile, hover für desktop]
 
 \subsection{link:before}
 
 \subsection{Metro Kacheln}
-[CSS3 Columns]
+
 \subsection{schräge Kanten}
 \begin{figure} [h]
 \includegraphics[width=\textwidth]{./img/css_secbefore.png}
