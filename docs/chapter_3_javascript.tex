@@ -7,7 +7,7 @@ Die \lstinline{requestAnimationFrame}-Funktion synchronisiert den Aufruf einer �
 
 
 \subsection{Animation Core}
-Um Animationen auf einer Website zu realisieren, kann man auf Frameworks wie jQuery zurückgreifen. Jedoch benutzen die meisten Frameworks intervallgesteuerte Animationsbibliotheken, die den Vorteil von \lstinline{requestAnimationFrame} nicht ausnutzen können. Deshalb wird im Folgenden ein auf Rekursion basiertes Animationsframework für Smooth Scrolling entwickelt, das später bei der Umsetzung unterschiedlicher Navigationsmöglichkeiten von Bedeutung sein wird, orientiert an \footcite[vgl.][]{rAF}
+Um Animationen auf einer Website zu realisieren, kann man auf Frameworks wie jQuery zurückgreifen. Jedoch benutzen die meisten Frameworks intervallgesteuerte Animationsbibliotheken, die den Vorteil von \lstinline{requestAnimationFrame} nicht ausnutzen können. Deshalb wird im Folgenden ein auf Rekursion basiertes Animationsframework für Smooth Scrolling entwickelt, das später bei der Umsetzung unterschiedlicher Navigationsmöglichkeiten von Bedeutung sein wird, orientiert an \footcite[vgl.][]{rAF}.
 
 \begin{lstlisting}[caption=Die Funktionen setScLPos und getScLPos., label=js_get_set]
 function getScLPos() {
@@ -25,7 +25,7 @@ function setScLPos(pos) {
 }
 \end{lstlisting}
 
-Um Browserübergreifend zu funktionieren, muss das Framework zunächst über Funktionen zum setzen und abfragen der Scrollposition verfügen (siehe Codeauszug \ref{js_get_set}). In der \lstinline{getScLPos}-Funktion werden dabei zunächst die verschiedenen Variablen abgefragt, die die Scrollposition enthalten. Dabei ist darauf zu achten, dass die If-Bedingung die Werte 0, \lstinline{undefined} und \lstinline{null} als \lstinline{false} interpretiert, weshalb davon auszugehen ist, dass die If-Bedingung auch dann übersprungen wird, wenn die jeweilige Variable gleich 0 ist. Deshalb wird am Ende der Funktion 0 ausgegeben. Im Gegensatz dazu muss in der \lstinline{setScL} Funktion, mit der die Scrollposition gesetzt wird, explizit geprüft werden, ob die Variable existiert, indem die Gleichheit auf 0 auch geprüft wird. Erst dann kann entschieden werden, welche Variable in ihrem Wert geändert wird.
+Um Browserübergreifend zu funktionieren, muss das Framework zunächst über Funktionen zum Setzen und Abfragen der Scrollposition verfügen (siehe Codeauszug \ref{js_get_set}). In der \lstinline{getScLPos}-Funktion werden dabei zunächst die verschiedenen Variablen abgefragt, die die Scrollposition enthalten. Dabei ist darauf zu achten, dass die If-Bedingung die Werte 0, \lstinline{undefined} und \lstinline{null} als \lstinline{false} interpretiert, weshalb davon auszugehen ist, dass die If-Bedingung auch dann übersprungen wird, wenn die jeweilige Variable gleich 0 ist. Deshalb wird am Ende der Funktion 0 ausgegeben. Im Gegensatz dazu muss in der \lstinline{setScL} Funktion, mit der die Scrollposition gesetzt wird, explizit geprüft werden, ob die Variable existiert, indem die Gleichheit auf 0 auch geprüft wird. Erst dann kann entschieden werden, welche Variable in ihrem Wert geändert wird.
 
 \begin{lstlisting}[caption=Globale Variablen des Animationsframework., label=js_globals]
 var startX = null;
@@ -87,7 +87,7 @@ function delta(prog) {
 }
 \end{lstlisting}
 
-Nun ist das Animationsframework für die Zwecke der Digital Home Seite einsatzfähig.
+Nun ist das Animationsframework für die Zwecke der Digital-Home-Seite einsatzfähig.
 
 \subsection{Parallax Funktion}
 Die Startseite wirkte beim Scrollen bisher durch das minimalistisch flache Design sehr statisch und platt. Um der Seite trotzdem Tiefe und 3Dimensionalität zu geben, wurde ein Parallax-Scrolling Effekt für das Titelbild jeder Seite implementiert.
@@ -109,12 +109,13 @@ function scrollex() {
 window.onscroll = scrollex;
 \end{lstlisting}
 
-Im Codeauszug \ref{js_scrollex} sieht man die Zuweisung der Funktion \lstinline{scrollex()} zum Onscroll Eventhandler. Da das Scrollevent vor allem auf Touchpads mehrere Male pro Sekunde gefeuert wird, muss sichergestellt sein, dass nicht mehrere Events pro Frame mehrere Funktionsaufrufe pro Frame auslösen. Dafür wird die Variable \lstinline{scroll\_correct} eingeführt. Sie ist standardmäßig false und wird auf true gesetzt sobald ein Scrollevent einen Funktionsaufruf der Parallaxfunktion \lstinline{prllx()} auslöst, danach kann diese Funktion, die für die parallaxe Verschiebung des Titelbildes verantwortlich ist, nicht mehr aufgerufen werden bis sie zum nächsten AnimationFrame ausgeführt wird. Zum Ende der Funktion wird \lstinline{scroll\_correct} auf false zurückgesetzt, damit sie beim nächsten Scrollevent wieder aufgerufen werden kann. Innerhalb der Funktion \lstinline{prllx()} wird die Verschiebung des Bildes abhängig von der aktuellen Scrollposition ausgerechnet. Ist die Position konstant, so scrollt das Bild mit dem Content und der Effekt entspricht einer absoluten Positionierung mit CSS. Ist die Position des Bildes gleich der Scrollposition, so bewegt sich das Bild mit dem Viewport, was fixierter Positionierung mit CSS entspräche. In diesem Beispiel wurde der Faktor 0.5 (Variable speed) gewählt, womit sich das Bild halb so schnell wie der Content in Scrollrichtung bewegt. Dadurch entsteht der gewünschte 3D-Effekt.
+Im Codeauszug \ref{js_scrollex} sieht man die Zuweisung der Funktion \lstinline{scrollex()} zum Onscroll Eventhandler. Da das Scrollevent vor allem auf Touchpads mehrere Male pro Sekunde aktiviert wird, muss sichergestellt sein, dass nicht mehrere Events pro Frame mehrere Funktionsaufrufe pro Frame auslösen. Dafür wird die Variable \lstinline{scroll\_correct} eingeführt. Sie ist standardmäßig false und wird auf true gesetzt sobald ein Scrollevent einen Funktionsaufruf der Parallaxfunktion \lstinline{prllx()} auslöst, danach kann diese Funktion, die für die parallaxe Verschiebung des Titelbildes verantwortlich ist, nicht mehr aufgerufen werden bis sie zum nächsten AnimationFrame ausgeführt wird. Zum Ende der Funktion wird \lstinline{scroll\_correct} auf false zurückgesetzt, damit sie beim nächsten Scrollevent wieder aufgerufen werden kann. Innerhalb der Funktion \lstinline{prllx()} wird die Verschiebung des Bildes abhängig von der aktuellen Scrollposition ausgerechnet. Ist die Position konstant, so scrollt das Bild mit dem Content und der Effekt entspricht einer absoluten Positionierung mit CSS. Ist die Position des Bildes gleich der Scrollposition, so bewegt sich das Bild mit dem Viewport, was fixierter Positionierung mit CSS entspräche. In diesem Beispiel wurde der Faktor 0.5 (Variable speed) gewählt, womit sich das Bild halb so schnell wie der Content in Scrollrichtung bewegt. Dadurch entsteht der gewünschte 3D-Effekt.
 
 
 
 
 \subsection{Canvas}
+\label{descr_canvas}
 
 Da sich Teile der Website noch im Bau befinden, müssen Platzhalter für diese Seiten her. Einfache Textseiten wie `hier wird gebaut` würden langweilig wirken und die geringe Wertschätzung der Seite von Seiten der Entwickler und Designer zeigen. Deshalb muss man sich für Error- und Baustellenseiten etwas besonderes einfallen lassen, um die Seite mit Inhalt zu füllen und dem User als Kunden etwas zu bieten, was er in guter Erinnerung behalten kann. Im Bezug auf Kapitel \ref{emo_col} wurde eine Seite entwickelt, die auf der einen Seite mit Hilfe des Farbschemas Emotionen hervorrufen kann und gleichzeitig den Satz `hier wird gebaut` verbildlicht. Dafür wurde eine parallax scrollende Seite entwickelt, auf der die Skyline einer Stadt zu sehen ist mit wechselndem Himmel, der den Verlauf des Tages darstellen soll. In der Skyline lassen sich Kräne, Helikopter und Baustellen erkennen, die sich auf die Baustellenseite beziehen. Außerdem soll die Stadt technologischen Fortschritt verdeutlichen, den Digital Home verkörpern will.
 \begin{figure} [h]
