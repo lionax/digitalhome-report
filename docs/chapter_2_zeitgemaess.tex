@@ -33,7 +33,7 @@ Letzten Endes ist auch dieses Design nicht vertraut genug und etwas zu minimalis
 Die Entwicklung des Markups in HTML stützt sich auf das neue HTML5 und nutzt somit HTML-Tags wie \lstinline{<section>}, \lstinline{<nav>} und \lstinline{<footer>}.
 Interessant bzw. speziell ist in diesem Zusammenhang lediglich noch das verwendete Kachel-System, welches eigens für diese Seite entwickelt wurde. Hierbei wurde auf die sog. AM-Modules zurückgegriffen.\footcite[vgl.][]{glen:am} Bei diesem Ansatz definiert man statt CSS-Klassen CSS-Attribute und weißt ihnen die Styles zu. Der Vorteil liegt hierbei im Namespace-Charakter. Der Namespace für die Kacheln lautet \lstinline{[am-Tile]}. Im Codeauszug \ref{code:zeitg:css1} ist zusehen, wie dem Namespace zuerst ein Grundstil vergeben wird und anschließend auf Elemente mit der Eigenschaft \lstinline{~="featured"} weitere Verfeinerungen angewendet werden.
 
-\begin{lstlisting}[caption={AM-Modules zur Definition eines Namespace in CSS.}, label={code:zeitg:css1}]
+\begin{lstlisting}[caption=AM-Modules zur Definition eines Namespace in CSS., label=code:zeitg:css1]
 [am-Tile] {
 	width: $column-width;
 	padding-bottom: $column-width;
@@ -51,7 +51,7 @@ Interessant bzw. speziell ist in diesem Zusammenhang lediglich noch das verwende
 
 Desweiteren wird der CSS Code in der Präprozessor-Sprache SCSS geschrieben und anschließend in Valides CSS compiliert. Zu sehen anhand des Codeauszugs \ref{code:zeitg:css2}.
 
-\begin{lstlisting}[caption={Verschachtelung von CSS-Klassen in SCSS.}, label={code:zeitg:css2}]
+\begin{lstlisting}[caption=Verschachtelung von CSS-Klassen in SCSS., label=code:zeitg:css2]
 nav {
 	flex-direction: row;
 	justify-content: flex-end;
