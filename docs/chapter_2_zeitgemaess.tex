@@ -4,7 +4,7 @@ Der zeitgemäße Design-Entwurf hat zur Aufgabe dem Benutzer eine möglichst bek
 Jeder Designentwurf in diesem Ansatz verfolgt gleichzeitig den Ansatz des Mobile-First. Demzufolge werden verschiedene Endgeräte in die Überlegungen mit einbezogen.
 
 \subsection{Comprehensive Dummy}
-\begin{figure} [hp]
+\begin{figure} [ht]
 	\includegraphics[width=\textwidth]{./img/zeitg_comp1.jpg}
 	\caption{Ein erster Entwurf des zeitgemäßen Ansatzes mit Stift und Papier.}
 	\label{zeitg:Comp1}
@@ -15,7 +15,7 @@ Die erste Version des Comprehensive Dummy setzt ein Kacheldesign für Inhalts- u
 Nach weiteren Überlegungen entsteht ein weiterer Comprehensive Dummy. Die Entscheidung zu diesem Schritt fußt auf den Überlegungen, dass zum einen eine Navigation in bekannter Weise fehlt und zum anderen das Bild eines Hochhauses nicht zur Zielgruppe der privaten Hauseigentümer passt.
 Abbildung \ref{zeitg:Comp2} zeigt einen Ansatz, bei dem sich das Design am Logo orientiert. Auch hier stellt es im Grunde eine Abstraktion eines Hauses dar. Diesmal jedoch ist ein Menü direkt am oberen Ende präsent. Ebenso sind die Inhaltsblöcke wieder als Fenster angedeutet.
 
-\begin{figure} [hp]
+\begin{figure} [ht]
 	\includegraphics[width=\textwidth]{./img/zeitg_comp2.png}
 	\caption{Der zweite Entwurf des zeitgemäßen Ansatzes. Diesmal bereits in HTML und CSS.}
 	\label{zeitg:Comp2}
@@ -23,7 +23,7 @@ Abbildung \ref{zeitg:Comp2} zeigt einen Ansatz, bei dem sich das Design am Logo 
 
 Letzten Endes ist auch dieses Design nicht vertraut genug und etwas zu minimalistisch. Es folgt der letzte Entwurf, der explizit bekanntere Wege geht (siehe Abbildung \ref{zeitg:Comp3}. Weitere Einzelheiten zur Analyse der Struktur folgt im Kapitel \nameref{zeitg:struktur} auf Seite \pageref{zeitg:struktur}.
 
-\begin{figure} [hp]
+\begin{figure} [h]
 	\includegraphics[width=\textwidth]{./img/zeitg_comp3.jpg}
 	\caption{Der dritte und letzte Entwurf des zeitgemäßen Ansatzes mit Stift und Papier}
 	\label{zeitg:Comp3}
@@ -84,7 +84,7 @@ Auch in den anderen Ansätzen kommt diese Schriftart zum Einsatz. Vgl. Kapitel \
 Strukturell ist dieser Ansatz recht konservativ mit einer Navigation am oberen Bildschirmrand, einem großen Blickfänger darunter und unter diesem der Inhaltsbereich im Kachel-Design. (Siehe Abbildungen \ref{zeitg:struktur1} und \ref{zeitg:struktur2})
 Auf dem Blickfänger bzw. Titelbild ist das Logo mit dem Firmenname gut Sichtbar platziert, sowie eine Unterüberschrift direkt darunter. Zur besseren Lesbarkeit sind beide Blöcke durch Whitespace getrennt und haben einen Innenabstand von 1.5rem auf 16px normalisiert. Der Logo Block und die Unterüberschrift haben einen Abstand von 32px zueinander.
 
-\begin{figure} [hp]
+\begin{figure} [ht]
 	\includegraphics[width=\textwidth]{./img/zeitg_struktur1.png}
 	\caption{Startseite im programmierten Design, Navigation und Titelbild.}
 	\label{zeitg:struktur1}
@@ -96,13 +96,13 @@ Auf dem Blickfänger bzw. Titelbild ist das Logo mit dem Firmenname gut Sichtbar
 	\label{zeitg:struktur2}
 \end{figure}
 
-Um Botschaften zum Nutzer zu übertragen werden in diesem Design größtenteils Bilder verwendet, wie auch an dem großen Titelbild in Abbildung \ref{zeitg:struktur1} zu sehen ist. Transparenz der Schriftblöcke erleichtert das Erkennen der Bilder im Hintergrund. (Zu sehen in Abbildung \ref{zeitg:struktur2}).
-Das Kachel-System in diesem Design basiert auf einem Grid-System mit einer Spaltenbreite von genau 320px und einem Spaltenabstand von 32px. Das System ist darüber hinaus mobil optimiert und folgt dem Responsive Webdesign Principle\footcite[vgl.][]{alistapart:rwd}. Anders als im allgemeinen Konsens arbeitet das System allerdings nach dem Adaptive Design Principle, welches ein Bestandteil des RWD darstellt. Dabei gibt es CSS-Breakpoints für bestimmte definierte Größen, wodurch das Design auch auf mobilen Geräten gut präsentiert wird. Wenn auch angemerkt werden muss, dass dieses Prinzip nicht derart flexibel ist, wie ein Fluid-Design.
-Zur besseren Hervorhebung und Differenzierung einzelner Inhaltsblöcke gibt es verschiedene Arten von Kacheln. Standard sind hier die rechteckigen Kacheln der größe 320px. Kacheln mit der Eigenschaft \lstinline{~="featured"} werden in doppelter Größe in Höhe als auch Breite dargestellt. Die Eigenschaft \lstinline{~="extra"} verleiht der Kachel eine doppelte Breite.
-Auf mobilen Endgeräten werden alle Kacheln auf Standardgröße reduziert sowie in einer einzigen Spalte angezeigt. Außerdem wird das Menü unter dem großen Bildbereich positioniert (Siehe Abbildung \ref{zeitg:struktur3}), so dass bei jeder Bildschirmgröße der Anfang des Menüs zu erkennen ist.
-
 \begin{figure} [hp]
 	\includegraphics[width=0.5\textwidth]{./img/zeitg_struktur3.png}
 	\caption{Startseite im Programmierten Design in der mobilen Ansicht. Navigation unter dem großen Bildbereich positioniert.}
 	\label{zeitg:struktur3}
 \end{figure}
+
+Um Botschaften zum Nutzer zu übertragen werden in diesem Design größtenteils Bilder verwendet, wie auch an dem großen Titelbild in Abbildung \ref{zeitg:struktur1} zu sehen ist. Transparenz der Schriftblöcke erleichtert das Erkennen der Bilder im Hintergrund. (Zu sehen in Abbildung \ref{zeitg:struktur2}).
+Das Kachel-System in diesem Design basiert auf einem Grid-System mit einer Spaltenbreite von genau 320px und einem Spaltenabstand von 32px. Das System ist darüber hinaus mobil optimiert und folgt dem Responsive Webdesign Principle\footcite[vgl.][]{alistapart:rwd}. Anders als im allgemeinen Konsens arbeitet das System allerdings nach dem Adaptive Design Principle, welches ein Bestandteil des RWD darstellt. Dabei gibt es CSS-Breakpoints für bestimmte definierte Größen, wodurch das Design auch auf mobilen Geräten gut präsentiert wird. Wenn auch angemerkt werden muss, dass dieses Prinzip nicht derart flexibel ist, wie ein Fluid-Design.
+Zur besseren Hervorhebung und Differenzierung einzelner Inhaltsblöcke gibt es verschiedene Arten von Kacheln. Standard sind hier die rechteckigen Kacheln der größe 320px. Kacheln mit der Eigenschaft \lstinline{~="featured"} werden in doppelter Größe in Höhe als auch Breite dargestellt. Die Eigenschaft \lstinline{~="extra"} verleiht der Kachel eine doppelte Breite.
+Auf mobilen Endgeräten werden alle Kacheln auf Standardgröße reduziert sowie in einer einzigen Spalte angezeigt. Außerdem wird das Menü unter dem großen Bildbereich positioniert (Siehe Abbildung \ref{zeitg:struktur3}), so dass bei jeder Bildschirmgröße der Anfang des Menüs zu erkennen ist.

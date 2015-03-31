@@ -1,13 +1,10 @@
+%!TEX root = ../main.tex
 \section{Optimierung}
-Die Webseite war aber trotz allem noch lange nicht perfekt. 
-\\
-\\
-Der CSS- und Javascript-Quelltext wurde modularisiert, sodass man eine einfachere Wartung und Optimierung machen kann.
-\\
-\\
-Die Bilder waren zu groß, so dass es Probleme mit Transition-Effekten gab, da der Browser mit dem Rendern nicht nachkam. Dies wurde durch Komprimieren mit Hilfe von Minifyern behoben, worauf jetzt noch genauer eingegangen wird.
-\\
-Damit der Quelltext für den Browser schneller und einfacher zu interpretieren ist, und um die Ladezeiten von Bildern zu verkürzen, wurden im Anschluss Programme verwendet, sogenannte Minifyer, die alle für den Browser unnötige Zeichen, wie Kommentare oder Leerzeichen, aus dem Quelltext entfernen und somit die komprimiert und für den Computer vereinfacht. Mit Hilfe dieser Programme wurden Bilder, HTML, CSS, und JavaScript-Dateien komprimiert. Da aber der Quelltext zwar für den Computer viel einfacher und schneller lesbar ist, ist es für Menschen nicht mehr so einfach lesbar. Deswegen wurde ein Source-Verzeichnis angelegt, worin gearbeitet wird, und im Anschluss die Minifyer die eigentlichen Quelltext-Dateien, worauf sich der Browser bezieht, verkleinert. 
-\\
-\\
-Das zuvor implementierte Canvas wurde wieder aus der Startseite herausgenommen, da dieses zu große Probleme beim Laden der Seite bereitet hat. Da aber das Konzept des Canvas gefallen hatte, wurde es als Hintergrundeffekt der Fehler- und der Wartungsseiten eingesetzt. Darauf wird in Kapitel \ref{descr_canvas} genauer eingegangen.
+Nachdem sowohl alle Ideen im finalen Design-Ansatz gesammelt sind sowie die finale Code-Basis einen produktiven Zustand erreicht haben, kann mit der optimierung des Projektes begonnen werden. Für eine produktive Webseite ist es ausgesprochen wichtig, möglichst wenig Daten bei bestmöglicher Qualität an den Endnutzer herauszugeben. Zwar wurde bei der Entwicklung bereits auf einen sauberen Programmierstil geachtet, dennoch gibt es viele weitere Ansatzpunkte für Verbesserungen.
+
+\subsection{Minifer}
+Bilder können in den meisten Fällen extra für das Web optimiert werden. In diesem Projekt ist diesbezüglich ein Gulp.js Plugin zum Einsatz gekommen, welches automatisch eine komprimierung von Bildern für das WWW (World Wide Web) übernimmt. Genaueres zu Gulp.js folgt im Kapitel \ref{chapter:prepros} auf Seite \pageref{chapter:prepros}.
+Neben Bildern gibt es auch im Quellcode viele für den Browser unnötige Bits, deren Übertragung leicht vermieden werden kann. Hierzu zählen vor allem Kommentare, Lehrzeilen und Zeilenumbrüche. Da diese allerdings eine große Bedeutung für die Entwickler haben, kann nicht einfach darauf verzichtet werden. Ein entsprechendes Programm (ebenfalls unter Gulp.js) kümmert sich um eine entsprechende Vereinfachung der CSS-Dateien für Webbrowser und verfügt zusätzlich noch über eine Funktion zum Zusammenlegen von gleichen CSS3-Mediaqueries. Im Endeffekt kann somit bei einigen Dateien, ohne zip-Komprimierung, eine verkleinerung von über 500\% erreicht werden. (Quelltext im Anhang ist zur besseren Lesbarkeit unkomprimiert).
+
+\subsection{Canvas-Element}
+Das Canvas-Element hat auf der Startseite für größere FPS-Einbrüche der gesamten Seite gesorgt, weshalb diese neben optimierungen auf eine 404-Fehler Seite ausgelagert ist. \ref{descr_canvas}
