@@ -1,6 +1,17 @@
+%!TEX root = ../main.tex
 \chapter{Ausblick}
 %Einleitungstext
+Wie Mark Twain richtigerweise feststellte, hat auch dieser Arbeit die letzte Minute die restliche Antriebskraft geliefert um einen aktzeptablen Abgabezustand zu erreichen. Ein Design ist erstellt, in Code implementiert und anschließend optimiert. Unterseiten sind abgeleitet, die Dokumentation ist verfasst. Trotzallem kann niemand sagen, die Webseite hätte ihre finale Form erreicht. Es gibt noch einige Ansatzpunkte für Verbesserungen.
 
+\begin{quote}
+	Gäbe es die letzte Minute nicht, so würde niemals etwas fertig.
+	- Mark Twain
+\end{quote}
 
 %Einleitungstext_Ende
-\input{./docs/chapter_4_rendering_fehler.tex}
+%\section{Antialiasing}
+Um die Anzeigequalität von Webinhalten zu verbessern, nutzen Browser das Antialiasing um kannten nachträglich zu glätten. Im Verlaufe der Entwicklungen stellte sich allerdings heraus, dass dieses Verhalten einen negativen Effekt auf einige CSS-Transitions ausübt. So scheint es, dass zu beginn einer solchen Transition das Antialiasing deaktiviert wird und nach Abschluss wieder auf das Ergebnis angewendet. Dadurch entsteht ein \"Nachzügler-Effekt\", bei dem die Kanten am Ende der Bewegung der CSS-Elemente nochmal nachgezeichnet werden.
+An dieser Stelle kann noch weitere Nachforschung betrieben werden, um mögliche Work-Arounds oder bessere Herangehensweisen zu finden.
+
+%\section{Buffer-Overflow in Chrome}
+Im Chrome-Browser tritt ein eigenartiger Effekt bei den Kachel-Abschnitten auf, bei dem ab der zweiten Spalte die CSS-Effekte nicht mehr korrekt ausgeführt werden. In der Praxis bedeutet das, Animationen führen zu FPS-Einbrüchen. Für dieses Verhalten ist ein mutmaßlicher Buffer-Overflow verantwortlich, der aufgrund der verwendeten Bilder auftritt.
