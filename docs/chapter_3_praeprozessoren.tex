@@ -11,11 +11,11 @@ Jade ist im eigentlichen Sinne eine Templating-Engine für Web-Applikationen. Al
 
 \subsection{Das Template-System}
 Das Projekt ist durch ein dreistufiges System modularisiert. Abbildung \ref{pre:system} zeigt den hierarchischen Aufbau. Seiten nutzen das Konstrukt der Vererbung von Jade, implementieren ein entsprechendes Template und definieren darin den Inhalt. Hier kann entweder direkt Inhalt definiert werden oder sog. modulare Mixins importiert werden.
-In einem Template wird die grobe HTML-Struktur definiert, als auch verwendete CSS-Klassen und Skripte. Außerdem können bereits Module wie Menüs oder Footer geladen werden.
+In einem Template wird durch die grobe HTML-Struktur, verwendete CSS-Klassen und Skripte definiert. Außerdem können dort Module wie Menüs oder Footer geladen werden.
 Module sind fest definierte HTML-Konstrukte, die schlicht importiert werden und statisch sind.
 Im Gegensatz dazu sind Mixins dynamisch und verwenden Übergabeparameter um bestimmte Werte bei der Ausgabe zu beeinflussen. So gibt es etwa ein Tile-Mixin, welches als Parameter eine Überschrift und eine Unterüberschrift erhält.
 \\
-Für den Stil einer Jade-Datei existiert jeweils eine SCSS-Datei. Parallel werden also Stil-Dateien erstellt und entsprechend der Hierarchie importiert. Bspw. wird eine index.jade eine index.scss Datei erhalten, welche wiederum die SCSS-Datei des Templates importiert. Diese importiert ebenfalls alle SCSS-Dateien der Module und Mixins die benötigt werden.
+Für den Stil einer Jade-Datei existiert jeweils eine SCSS-Datei. Parallel werden also Stil-Dateien erstellt und entsprechend der Hierarchie importiert. Bespielsweise wird eine index.jade eine index.scss Datei erhalten, welche wiederum die SCSS-Datei des Templates importiert. Diese importiert ebenfalls alle SCSS-Dateien der Module und Mixins, die benötigt werden.
 Letztenendes entsteht eine CSS-Datei für jede individuelle Seite mit lediglich den benötigten Styles.
 
 \begin{figure} [tp]
